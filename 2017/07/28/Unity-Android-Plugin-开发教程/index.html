@@ -52,7 +52,7 @@
 <meta property="og:image" content="http://rolyyu.github.io/2017/07/28/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B22.png">
 <meta property="og:image" content="http://rolyyu.github.io/2017/07/28/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B2.gif">
 <meta property="article:published_time" content="2017-07-28T11:30:08.000Z">
-<meta property="article:modified_time" content="2020-07-23T15:16:37.839Z">
+<meta property="article:modified_time" content="2021-07-10T06:12:20.968Z">
 <meta property="article:author" content="Roly">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
@@ -245,7 +245,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-23 23:16:37" itemprop="dateModified" datetime="2020-07-23T23:16:37+08:00">2020-07-23</time>
+                <time title="Modified: 2021-07-10 14:12:20" itemprop="dateModified" datetime="2021-07-10T14:12:20+08:00">2021-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -290,7 +290,8 @@
 
       
         <p><img src="/2017/07/28/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B1.png" alt="Unity-Android-Plugin-开发教程1"></p>
-<p><em><strong>开发环境Windows平台（Unity2017.1.0f3 Personal ，Android Studio 2.3.3）</strong></em></p>
+<center>开发环境Windows平台（Unity2017.1.0f3 Personal ，Android Studio 2.3.3）</center>
+
 <span id="more"></span> 
 
 <h2 id="在Unity项目中构建和使用Android-Plugin"><a href="#在Unity项目中构建和使用Android-Plugin" class="headerlink" title="在Unity项目中构建和使用Android Plugin"></a>在Unity项目中构建和使用Android Plugin</h2><blockquote>
@@ -328,9 +329,12 @@
 </blockquote>
 <p><img src="/2017/07/28/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B9.png" alt="Unity-Android-Plugin-开发教程1"></p>
 <p>2.修改<strong>Manifest.xml</strong>文件</p>
-<p>在activity中添加<code>&lt;meta-data android:name=&quot;unityplaer.UnityActivity&quot; android:value=&quot;true&quot;/&gt;</code></p>
+<p>在activity中添加</p>
+<p><code>&lt;meta-data android:name=&quot;unityplaer.UnityActivity&quot; android:value=&quot;true&quot;/&gt;</code></p>
 <p><img src="/2017/07/28/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B10.png" alt="Unity-Android-Plugin-开发教程1"></p>
-<h4 id="引入Unity的classes-jar包"><a href="#引入Unity的classes-jar包" class="headerlink" title="引入Unity的classes.jar包"></a>引入Unity的<strong>classes.jar</strong>包</h4><p>从Unity 的安装目录找到unity的classes.jar包。<br>Windows目录：<strong>C:\ProgramFiles\Unity\Editor\Data\PlaybackEngines\AndroidPlayer\Variations\mono\Release\classes.jar</strong><br>Mac下目录：**/Applications/Unity/PlaybackEngines/AndroidPlayer/Variations/mono/Release/Classes\classes.jar**<br>​    将其拷贝到UnityAndroid项目app目录下的libs目录下，右键<strong>Add as library</strong>，导入之后可以发现在build.gradle中就有他的引入了。</p>
+<h4 id="引入Unity的classes-jar包"><a href="#引入Unity的classes-jar包" class="headerlink" title="引入Unity的classes.jar包"></a>引入Unity的<strong>classes.jar</strong>包</h4><p>从Unity 的安装目录找到unity的classes.jar包。<br>Windows目录：</p>
+<p><strong>C:\ProgramFiles\Unity\Editor\Data\PlaybackEngines\AndroidPlayer\Variations\mono\Release\classes.jar</strong><br>Mac下目录：</p>
+<p><strong>/Applications/Unity/PlaybackEngines/AndroidPlayer/Variations/mono/Release/Classes\classes.jar</strong><br>​将其拷贝到UnityAndroid项目app目录下的libs目录下，右键<strong>Add as library</strong>，导入之后可以发现在build.gradle中就有他的引入了。</p>
 <p><img src="/2017/07/28/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B11.png" alt="Unity-Android-Plugin-开发教程1"></p>
 <p><img src="/2017/07/28/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/Unity-Android-Plugin-%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B12.png" alt="Unity-Android-Plugin-开发教程1"></p>
 <h4 id="编写Android项目与Unity项目交互的代码"><a href="#编写Android项目与Unity项目交互的代码" class="headerlink" title="编写Android项目与Unity项目交互的代码"></a>编写Android项目与Unity项目交互的代码</h4><p>首先需要让MainActivity继承<strong>UnityPlayerActivity</strong>,同时删除onCreate方法中的<strong>setContentView()</strong></p>
