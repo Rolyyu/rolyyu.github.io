@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://rolyyu.github.io/2020/08/09/%E7%90%86%E8%A7%A3C-C-%E7%BC%96%E8%AF%91/C_DevelopmentProcesses.png">
 <meta property="article:published_time" content="2020-08-09T12:47:28.000Z">
-<meta property="article:modified_time" content="2021-07-05T15:28:11.008Z">
+<meta property="article:modified_time" content="2021-07-26T14:54:09.601Z">
 <meta property="article:author" content="Roly">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-05 23:28:11" itemprop="dateModified" datetime="2021-07-05T23:28:11+08:00">2021-07-05</time>
+                <time title="Modified: 2021-07-26 22:54:09" itemprop="dateModified" datetime="2021-07-26T22:54:09+08:00">2021-07-26</time>
               </span>
 
           
@@ -268,6 +268,54 @@
 <p>编译器对源文件执行的第一步是在其上运行预处理器。只有源文件被传递给编译器(进行预处理和编译)。头文件不传递给编译器。相反，它们是从源文件中包含的。在所有源文件的预处理阶段，每个头文件都可以被打开多次，具体取决于有多少源文件包含了它们，或者有多少源文件中包含的其他头文件也包含了它们(可能有许多间接级别)。另一方面，编译器(和预处理器)只会在源文件被传递给编译器时打开一次。</p>
 <p>对于每一个C/C++源文件, 当它发现一个#include指令时，预处理器通过插入内容将构建一个翻译单元；与此同时，若找到条件编译模块的求值结果为false时，它会剥离代码源文件和指令的头。它还将完成一些其他任务，比如宏替换。一旦预处理器完成创建(有时是巨大的)转换单元，编译器就开始编译阶段并生成目标文件。</p>
 <p><a target="_blank" rel="noopener" href="https://gcc.gnu.org/">GNU C和C++编译器</a>分别称为gcc和g++。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-c</td>
+<td align="left">只编译并生成目标文件。</td>
+</tr>
+<tr>
+<td align="left">-E</td>
+<td align="left">只运行 C 预编译器。</td>
+</tr>
+<tr>
+<td align="left">-g</td>
+<td align="left">生成调试信息。GNU 调试器可利用该信息。</td>
+</tr>
+<tr>
+<td align="left">-o FILE</td>
+<td align="left">生成指定的输出文件。用在生成可执行文件时。</td>
+</tr>
+<tr>
+<td align="left">-O0</td>
+<td align="left">不进行优化处理。</td>
+</tr>
+<tr>
+<td align="left">-O 或 -O1</td>
+<td align="left">优化生成代码。</td>
+</tr>
+<tr>
+<td align="left">-O2</td>
+<td align="left">进一步优化。</td>
+</tr>
+<tr>
+<td align="left">-O3</td>
+<td align="left">比 -O2 更进一步优化，包括 inline 函数。</td>
+</tr>
+<tr>
+<td align="left">-w</td>
+<td align="left">不生成任何警告信息。</td>
+</tr>
+<tr>
+<td align="left">-Wall</td>
+<td align="left">生成所有警告信息。</td>
+</tr>
+</tbody></table>
 <p>下面是一个示例:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hello_c.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, C world!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
